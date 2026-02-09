@@ -1,0 +1,19 @@
+# Device Simulator Configuration - Temperature Sensor 001
+
+device_id: s_temp_001
+device_name: "Temperature Sensor 001"
+
+mqtt:
+  broker: localhost
+  port: 1883
+  keepalive: 60
+
+publishing:
+  interval: 60  # seconds
+
+sensors:
+  temperature:
+    initial: 20
+    min: 10
+    max: 40
+    variance: 0.5

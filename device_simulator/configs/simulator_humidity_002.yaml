@@ -1,0 +1,19 @@
+# Device Simulator Configuration - Temperature Sensor 001
+
+device_id: s_hum_002
+device_name: "humidity Sensor 002"
+
+mqtt:
+  broker: localhost
+  port: 1883
+  keepalive: 60
+
+publishing:
+  interval: 60  # seconds
+
+sensors:
+  humidity:
+    initial: 50
+    min: 30
+    max: 80
+    variance: 2.0
