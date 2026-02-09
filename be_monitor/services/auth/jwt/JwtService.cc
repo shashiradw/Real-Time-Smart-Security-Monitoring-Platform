@@ -8,7 +8,7 @@
 
 namespace services {
 
-    const std::string JwtService::SECRET_KEY = "CHANGE_THIS_TO_A_SECURE_SECRET_IN_PRODUCTION";
+    const std::string JwtService::SECRET_KEY = "XYZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
 
     std::string JwtService::base64UrlEncode(const std::string& data) {
         std::string b64 = drogon::utils::base64Encode(data);

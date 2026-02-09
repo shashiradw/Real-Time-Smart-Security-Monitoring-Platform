@@ -1,5 +1,6 @@
 #include "SensorDataService.h"
 #include "models/SensorData.h"
+#include "controllers/SensorWebSocket.h"
 #include <algorithm>
 
 namespace services {
@@ -30,6 +31,8 @@ namespace services {
             reading,
             [deviceId, sensorType](const drogon_model::ddmdb::SensorData& r) {
                 LOG_DEBUG << "Saved reading for " << deviceId << " (" << sensorType << ")";
+                // If saved successfully, broadcast the reading to all connected WebSocket clients
+                SensorWebSocket::broadcast(r.toJson());
             },
             [](const drogon::orm::DrogonDbException& e) {
                 LOG_ERROR << "Failed to save sensor reading: " << e.base().what();
